@@ -23,14 +23,14 @@ class MovieInput(BaseModel):
     genres: list[str]
 
 @app.get("/")
-async def home(request: Request):
+def home(request: Request):
     return templates.TemplateResponse("index.html", {
         "request": request,
         "genres": mlb.classes_.tolist()
     })
 
 @app.post("/predict")
-async def predict(data: MovieInput):
+def predict(data: MovieInput):
     log_budget = np.log1p(data.budget)
     month_sin = np.sin(2 * np.pi * data.release_month / 12)
     month_cos = np.cos(2 * np.pi * data.release_month / 12)

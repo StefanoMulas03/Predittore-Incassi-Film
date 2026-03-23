@@ -1,0 +1,268 @@
+:root {
+    --bg: #080b14;
+    --surface: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #f5c518;
+    --accent-glow: rgba(245, 197, 24, 0.3);
+    --text: #e8e8e8;
+    --muted: #666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(30, 20, 80, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(10, 40, 80, 0.3) 0%, transparent 50%);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* Stars background */
+.stars {
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.4) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.badge-top {
+    display: inline-block;
+    background: rgba(245, 197, 24, 0.1);
+    border: 1px solid rgba(245, 197, 24, 0.3);
+    color: var(--accent);
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.main-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.accent {
+    color: var(--accent);
+    text-shadow: 0 0 30px var(--accent-glow);
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Glass card */
+.glass-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    transition: border-color 0.3s;
+}
+
+.glass-card:hover {
+    border-color: rgba(245, 197, 24, 0.2);
+}
+
+.card-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #fff;
+}
+
+/* Form inputs */
+.form-label {
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+}
+
+.dark-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dark-input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow) !important;
+    outline: none !important;
+}
+
+.dark-input option {
+    background: #1a1a2e;
+}
+
+/* Language buttons */
+.lang-btn {
+    padding: 8px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--muted);
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.lang-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.lang-btn.active {
+    background: rgba(245, 197, 24, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Genre chips */
+.genre-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genre-chip {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.genre-chip:hover {
+    border-color: rgba(245, 197, 24, 0.4);
+    color: var(--text);
+}
+
+.genre-chip.selected {
+    background: rgba(245, 197, 24, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Predict button */
+.btn-predict {
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.08em;
+    padding: 14px 28px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.btn-predict:hover {
+    background: #ffd200;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.btn-predict:active {
+    transform: translateY(0);
+}
+
+/* Placeholder */
+.placeholder-icon {
+    font-size: 4rem;
+    opacity: 0.3;
+}
+
+/* Result */
+.result-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.result-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 40px var(--accent-glow);
+    line-height: 1;
+}
+
+.result-category {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 16px;
+}
+
+
+.toast-custom {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(231, 76, 60, 0.15);
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}

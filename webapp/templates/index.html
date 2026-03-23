@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predittore Incassi Film</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="toast" class="toast-custom d-none">
+        <span id="toast-message"></span>
+    </div>
+
+    <div class="stars"></div>
+
+    <div class="container py-5">
+
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <div class="badge-top mb-3">🎬 ML Revenue Predictor</div>
+            <h1 class="main-title">Predittore <span class="accent">Incassi</span> Film</h1>
+            <p class="subtitle">Inserisci le caratteristiche del film e scopri quanto potrebbe incassare nel mondo</p>
+        </div>
+
+        <!-- Main content -->
+        <div class="row g-4">
+
+            <!-- Form -->
+            <div class="col-lg-6">
+                <div class="glass-card p-4">
+                    <h2 class="card-title mb-4">⚙️ Parametri del Film</h2>
+
+                    <!-- Budget -->
+                    <div class="mb-3">
+                        <label class="form-label">Budget ($)</label>
+                        <input type="number" id="budget" class="form-control dark-input" placeholder="es. 200000000" min="0">
+                    </div>
+
+                    <!-- Runtime -->
+                    <div class="mb-3">
+                        <label class="form-label">Durata (minuti)</label>
+                        <input type="number" id="runtime" class="form-control dark-input" placeholder="es. 120">
+                    </div>
+
+                    <!-- Mese e Anno -->
+                    <div class="row g-3 mb-3">
+                        <div class="col-6">
+                            <label class="form-label">Mese di uscita</label>
+                            <select id="release_month" class="form-select dark-input">
+                                <option value="1">Gennaio</option>
+                                <option value="2">Febbraio</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Aprile</option>
+                                <option value="5">Maggio</option>
+                                <option value="6">Giugno</option>
+                                <option value="7">Luglio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Settembre</option>
+                                <option value="10">Ottobre</option>
+                                <option value="11">Novembre</option>
+                                <option value="12">Dicembre</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Anno di uscita</label>
+                            <input type="number" id="release_year" class="form-control dark-input" placeholder="es. 2025">
+                        </div>
+                    </div>
+
+                    <!-- Lingua -->
+                    <div class="mb-3">
+                        <label class="form-label">Lingua originale</label>
+                        <div class="d-flex gap-3">
+                            <div class="lang-btn active" onclick="selectLang(this, 1)">Inglese</div>
+                            <div class="lang-btn" onclick="selectLang(this, 0)">🌍 Altra lingua</div>
+                        </div>
+                        <input type="hidden" id="is_english" value="1">
+                    </div>
+
+                    <!-- Generi -->
+                    <div class="mb-4">
+                        <label class="form-label">Generi</label>
+                        <div class="genre-grid" id="genre-grid">
+                            {% for genre in genres %}
+                            <div class="genre-chip" onclick="toggleGenre(this)" data-genre="{{ genre }}">{{ genre }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <button class="btn-predict w-100" onclick="predict()">
+                        <span id="btn-text">🎬 Predici l'incasso</span>
+                        <span id="btn-spinner" class="d-none">
+                            <span class="spinner-border spinner-border-sm me-2"></span>Calcolo in corso...
+                        </span>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Risultato -->
+            <div class="col-lg-6">
+                <div class="glass-card p-4 h-100 d-flex flex-column justify-content-center" id="result-section">
+                    <div id="result-placeholder" class="text-center">
+                        <div class="placeholder-icon">🎥</div>
+                    </div>
+                    <div id="result-content" class="d-none">
+                        <h2 class="card-title mb-4">📊 Risultato</h2>
+                        <div class="text-center mb-4">
+                            <div class="result-label">Incasso Stimato</div>
+                            <div class="result-value" id="result-value">—</div>
+                        </div>
+                        <div class="result-category text-center" id="result-category"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
