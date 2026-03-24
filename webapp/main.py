@@ -11,8 +11,8 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static") 
 templates = Jinja2Templates(directory="templates")
 
-model = joblib.load("../model.joblib")
-mlb = joblib.load("../mlb.joblib")
+model = joblib.load("model.joblib")
+mlb = joblib.load("mlb.joblib")
 
 class MovieInput(BaseModel):
     budget: float
