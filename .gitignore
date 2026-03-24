@@ -209,4 +209,3 @@ __marimo__/
 
 #File con estensione .csv
 *.csv
-*.joblib
