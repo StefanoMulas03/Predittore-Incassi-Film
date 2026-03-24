@@ -2,6 +2,8 @@
 
 Progetto completo di Machine Learning per la **previsione degli incassi cinematografici** basato sul dataset TMDB 930k Movies. Il progetto include un notebook Jupyter con l'intera pipeline ML e una web app per utilizzare il modello in modo interattivo.
 
+### 🚀 [Prova la Web App Live](https://predittore-incassi-film.onrender.com/)
+
 ---
 
 ## 📌 Obiettivo
@@ -85,7 +87,7 @@ La web app permette di inserire le caratteristiche di un film e ottenere una sti
 
 ---
 
-## 🚀 Come avviare il progetto
+## 🛠️ Come avviare il progetto
 
 ### 1. Clona il repository
 ```bash
@@ -127,8 +129,6 @@ Apri il browser su **http://127.0.0.1:8000**
 
 ## ⚠️ Note
 
-- `model.joblib` e `mlb.joblib` non sono inclusi nel repository perché generati dal notebook. È necessario eseguire il notebook prima di avviare la web app.
-- Il dataset CSV non è incluso nel repository perché troppo grande. Va scaricato da Kaggle.
 - Il modello ha un R² di 0.52 — le predizioni sono indicative e non precise, soprattutto per film con caratteristiche molto particolari (es. film locali, produzioni indipendenti).
 
 ---
