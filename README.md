@@ -114,10 +114,8 @@ pip install -r requirements.txt
 ### 4. Scarica il dataset
 Scarica `TMDB_movie_dataset_v11.csv` da [Kaggle](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) e mettilo nella root del progetto.
 
-### 5. Esegui il notebook
-Apri `notebook.ipynb` ed esegui tutte le celle in ordine. Al termine verranno generati `model.joblib` e `mlb.joblib`.
-
-### 6. Avvia la web app
+##
+### 5. Avvia la web app
 ```bash
 cd webapp
 uvicorn main:app --reload
@@ -130,6 +128,7 @@ Apri il browser su **http://127.0.0.1:8000**
 ## ⚠️ Note
 
 - Il modello ha un R² di 0.52 — le predizioni sono indicative e non precise, soprattutto per film con caratteristiche molto particolari (es. film locali, produzioni indipendenti).
+- La limitata affidabilità è dovuta principalmente alla qualità del dataset: su ~1.300.000 film disponibili, solo ~7.500 avevano dati completi e affidabili su budget e revenue. Un dataset più completo e verificato porterebbe a predizioni significativamente migliori.
 
 ---
 
