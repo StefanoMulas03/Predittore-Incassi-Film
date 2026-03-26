@@ -266,3 +266,77 @@ body {
     from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
     to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
+
+
+
+/* =========================================
+   Footer Legal - RESPONSIVE & DARK STYLE
+   ========================================= */
+.footer-legal {
+    margin-top: auto; /* Spinge il footer in fondo se c'è poco contenuto */
+    padding: 20px 0; /* Ridotto il padding verticale per mobile */
+    border-top: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.4); /* Un po' più scuro per staccare dal fondo */
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 15px; /* Padding orizzontale per non far toccare il testo ai bordi */
+}
+
+.footer-copy {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.85rem; /* Leggermente più piccolo */
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+}
+
+.footer-disclaimer {
+    color: var(--muted);
+    font-size: 0.7rem; /* Testo piccolo e discreto per il disclaimer */
+    line-height: 1.4; /* Interlinea più compatta */
+    margin-bottom: 6px;
+    font-weight: 300; /* Più sottile per non appesantire */
+}
+
+.footer-disclaimer strong {
+    color: rgba(255, 255, 255, 0.7); /* Il "Nota:" non giallo, ma grigio chiaro */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-data-source {
+    color: var(--muted);
+    font-size: 0.65rem;
+    font-style: italic;
+    opacity: 0.5;
+    margin-top: 4px;
+}
+
+/* --- Media Query per Schermi Grandi (Desktop) --- */
+@media (min-width: 768px) {
+    .footer-legal {
+        padding: 30px 0; /* Più respiro su desktop */
+    }
+
+    .footer-copy {
+        font-size: 0.9rem;
+    }
+
+    .footer-disclaimer {
+        font-size: 0.75rem;
+        line-height: 1.5;
+    }
+
+    .footer-data-source {
+        font-size: 0.7rem;
+    }
+}
