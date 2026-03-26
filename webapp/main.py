@@ -22,12 +22,15 @@ class MovieInput(BaseModel):
     is_english: int
     genres: list[str]
 
-@app.get("/")
+
+
+@app.api_route("/", methods=["GET", "HEAD"])
 def home(request: Request):
     return templates.TemplateResponse("index.html", {
         "request": request,
         "genres": mlb.classes_.tolist()
     })
+
 
 @app.post("/predict")
 def predict(data: MovieInput):
