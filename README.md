@@ -1,6 +1,6 @@
 # 🎬 Predittore Incassi Film
 
-Progetto completo di Machine Learning per la **previsione degli incassi cinematografici** basato sul dataset TMDB 930k Movies. Il progetto include un notebook Jupyter con l'intera pipeline ML e una web app per utilizzare il modello in modo interattivo.
+Progetto completo di Machine Learning per la **previsione degli incassi cinematografici** basato sul dataset Full TMDB Movies Dataset 2024 (1M Movies). Il progetto include un notebook Jupyter con l'intera pipeline ML e una web app per utilizzare il modello in modo interattivo.
 
 ### 🚀 [Prova la Web App Live](https://predittore-incassi-film.onrender.com/)
 
